@@ -1,0 +1,33 @@
+include ../layout
+
+block style
+    link(rel="stylesheet" href="/task/yourTask.css")
+block titile 
+    title #{pageTitle}
+block body
+    .body-wrapper(class="bg-dark-bg text-white py-4")
+        h1(class="text-3xl text-center pb-4") Finished Task
+        != messages()
+        div.flex.bg-white.p-2.mb-2(class="justify-between")
+            a(href="/task/yourTask" class="text-light-bg hover:text-black hover:underline block") Remaining Task
+        if (tasks.length == 0)
+            h1(class="text-2xl text-red-400") You have not finished any task yet !!!
+            a(href="/task/yourTask" class="text-blue-300 hover:text-blue-600") Finish One
+        each task in tasks
+            div.flex.justify-between.bg-light-bg.p-4.mb-1
+                div 
+                    h2(class="text-2xl underline") 
+                        b= task.title 
+                    p(class="py-3")= task.description
+                    p 
+                        each tag in task.tags
+                            span.tag= tag
+                    p Due Date: 
+                        b= task.dueDateTime.getDate() + '-' + task.dueDateTime.getMonth() + '-' + task.dueDateTime.getFullYear()
+                    p Due Time: 
+                        if(task.dueDateTime.getHours() > 12)
+                            b= task.dueDateTime.getHours()-12 + ':' + task.dueDateTime.getMinutes() + ':' +'PM'
+                        else
+                            b= task.dueDateTime.getHours() + ':' + task.dueDateTime.getMinutes() + ':' +'AM'
+                div 
+                    a(href=`/task/deleteTask/${task._id}` class="py-1 px-4 bg-red-600 hover:bg-red-800 rounded-lg mx-1 hover:cursor-pointer") Delete

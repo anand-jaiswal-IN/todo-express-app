@@ -1,0 +1,29 @@
+.body-wrapper {
+  padding-right: 10rem;
+  padding-left: 10rem;
+}
+nav {
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+.main-menu li {
+  display: inline-block;
+}
+.main-menu li a {
+  margin: 0 0.1rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+.errorMessage {
+  color: red;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  border-left: 0.3rem solid red;
+  margin-bottom: 0.5rem;
+}
+.successMessage {
+  color: green;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  border-left: 0.3rem solid green;
+  margin-bottom: 0.5rem;
+}

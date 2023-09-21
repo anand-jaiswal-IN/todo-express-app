@@ -1,0 +1,42 @@
+include ../layout
+
+block style     
+    link(rel="stylesheet" href="/users/signup.css")
+block titile 
+    title #{pageTitle}
+
+block body 
+    div.body-wrapper.py-4(class="bg-dark-bg text-black")
+        h1.text-left.text-xl.underline.pb-4.text-white SignUp Here
+        //- if (msgType == "error")
+        //-     div.pb-4
+        //-         span(class="text-error bg-white px-2 py-1" style="border-left: 0.3rem solid red") #{msgDesc}
+        //- else if (msgType == "success")
+        //-     div.pb-4
+        //-         span(class="text-success bg-white px-2" style="border-left: 0.3rem solid green")  #{msgDesc}
+        != messages()
+        form(action="/users/signup" method="post" name="signUpForm") 
+            div.pb-1
+                input(type="text" name="fullname" placeholder="Full Name" class="w-[100%] py-2 px-4 focus:outline-none focus:bg-light-bg focus:text-white")
+                span(id="fullNameError" class="text-sm text-white bg-error px-1 error") 
+            div.pb-1
+                input(type="email" name="email" placeholder="Email" class="w-[100%] py-2 px-4 focus:outline-none focus:bg-light-bg focus:text-white")
+                span(id="emailError" class="text-sm text-white bg-error px-1 error")
+            div.pb-1
+                input(type="password" name="passward" placeholder="Passward" class="w-[100%] py-2 px-4 focus:outline-none focus:bg-light-bg focus:text-white")
+                span(id="passwardError" class="text-sm text-white bg-error px-1 error")
+            div.pb-1 
+                input(type="text" name="confirmPassward" placeholder="Confirm Passward" class="w-[100%] py-2 px-4 focus:outline-none focus:bg-light-bg focus:text-white")
+                span(id="confirmPasswardError" class="text-sm text-white bg-error px-1 error")
+            div.pb-1.text-white
+                label(for="gender") Gender : 
+                input(type="radio" name="gender" value="1" checked)
+                |  Male 
+                input(type="radio" name="gender" value="0")
+                |  Female 
+            div.pb-1
+                textarea(name="bio" row="5" class="resize-none w-[100%] text-black focus:outline-none px-4 py-2" placeholder="Bio here")
+
+            input(type="submit" value="SignUp" class="bg-blue-600 text-white py-1 px-4 rounded-lg hover:bg-blue-800 hover:cursor-pointer")
+
+        script(src="/users/signup.js") 

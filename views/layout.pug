@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/tailwindcss/output.css")
+        link(rel="stylesheet", href="/index/layout.css")
+        block style
+        block titile 
+    body 
+        nav.body-wrapper.flex.justify-between.bg-dark-bg.text-light-white.items-center(style="padding-top : 0.5rem; padding-bottom:0.5rem")
+            div 
+                a(href="") 
+                    span.text-2xl.text-white  ToDo-app
+            div.main-menu
+                ul
+                    li
+                        a(href="/" class="hover:text-dark-white") Home
+                    if(!user)
+                        li
+                            a(href="/users/login" class="hover:text-dark-white") Login
+                        li
+                            a(href="/users/signup" class="hover:text-dark-white") SignUp
+                    if(user)
+                        li
+                            a(href="/task/addTask" class="hover:text-dark-white") Add Task
+                        li
+                            a(href="/task/yourTask" class="hover:text-dark-white") Your Task
+                        li
+                            a(href="/users/logout" class="hover:text-dark-white") Logout
+                

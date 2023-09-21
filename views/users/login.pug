@@ -1,0 +1,24 @@
+include ../layout
+
+block style     
+    link(rel="stylesheet" href="/users/login.css")
+block titile 
+    title #{pageTitle}
+
+block body 
+    div.body-wrapper.py-4(class="bg-dark-bg text-black")
+        h1.text-left.text-xl.underline.pb-4.text-white Login Here
+        != messages()
+        
+        form(action="/users/login" method="post" name="loginForm") 
+            div.pb-1
+                input(type="email" name="email" placeholder="Email" class="w-[100%] py-2 px-4 focus:outline-none focus:bg-light-bg focus:text-white")
+                span(id="emailError" class="text-sm text-white bg-error px-1 error")
+            div.pb-1
+                input(type="password" name="passward" placeholder="Passward" class="w-[90%] py-2 px-4 focus:outline-none focus:bg-light-bg focus:text-white")
+                button(id="showPasswardBtn" class="w-[10%] bg-green-500 hover:bg-green-700 py-2" type="button") Show
+                button(id="hidePasswardBtn" class="w-[10%] bg-green-500 hover:bg-green-700 py-2" type="button") Hide
+                span(id="passwardError" class="text-sm text-white bg-error px-1 error")
+                
+            input(type="submit" value="Login" class="bg-blue-600 text-white py-1 px-4 rounded-lg hover:bg-blue-800 hover:cursor-pointer mt-2")
+    script(src="/users/login.js") 

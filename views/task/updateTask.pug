@@ -1,0 +1,50 @@
+include ../layout
+
+block style
+    link(rel="stylesheet" href="/task/updateTask.css")
+block titile 
+    title #{pageTitle}
+block body 
+    .body-wrapper.bg-dark-bg.text-white.py-4
+        h1(class="text-2xl  pb-2") Update Your Task
+        != messages()
+        form(action='/task/updateTask/'+task._id method="post" class="text-black" name="updateTaskForm") 
+            div(class="mb-1")
+                input(type="text" name="title" value=`${task.title}` placeholder="Title" class="w-[100%] py-1 px-4 focus:outline-none")
+                span(id="titleError" class="text-sm text-white bg-error px-1 error") 
+            div(class="mb-1")
+                textarea(name="description" rows="4" placeholder="Description of your task" class="w-[100%] resize-none py-1 px-4 focus:outline-none") #{task.description}
+                span(id="descriptionError" class="text-sm text-white bg-error px-1 error") 
+            div(class="mb-4")
+                input(type="text" name="tag" class="w-[80%] py-1 px-4 focus:outline-none" placeholder="Tags")
+                button(class="w-[20%] py-1 bg-blue-600 hover:bg-blue-800 text-white" id="addMoreTagsBtn") Add
+                div(class="list-of-tags pt-1 flex")
+                    each tag in task.tags
+                        .tag.flex
+                            p= tag
+                            button.tagCancelBtn(onclick='tagCancel(this)') &times;
+            div(class="mb-4 text-white flex justify-between")
+                div(class="w-[50%]")
+                    label(for="dueDate") Due Date : 
+                    if(task.dueDateTime.getMonth().toString().length < 2 && task.dueDateTime.getDate().toString().length < 2)
+                        input(type="date" name="dueDate" value=`${task.dueDateTime.getFullYear()}-0${task.dueDateTime.getMonth()}-0${task.dueDateTime.getDate()}` class="text-black py-1 px-2 focus:outline-none")
+                    else if(task.dueDateTime.getMonth().toString().length < 2)
+                        input(type="date" name="dueDate" value=`${task.dueDateTime.getFullYear()}-0${task.dueDateTime.getMonth()}-${task.dueDateTime.getDate()}` class="text-black py-1 px-2 focus:outline-none")
+                    else if(task.dueDateTime.getDate().toString().length < 2)
+                        input(type="date" name="dueDate" value=`${task.dueDateTime.getFullYear()}-${task.dueDateTime.getMonth()}-0${task.dueDateTime.getDate()}` class="text-black py-1 px-2 focus:outline-none")
+                    else 
+                        input(type="date" name="dueDate" value=`${task.dueDateTime.getFullYear()}-${task.dueDateTime.getMonth()}-${task.dueDateTime.getDate()}` class="text-black py-1 px-2 focus:outline-none")
+                div(class="w-[50%]")
+                    label(for="dueTime") Due Time : 
+                    if(task.dueDateTime.getHours().toString().length < 2 && task.dueDateTime.getMinutes().toString().length < 2)
+                        input(type="time" name="dueTime" value=`0${task.dueDateTime.getHours()}:0${task.dueDateTime.getMinutes()}` class="text-black py-1 px-2 focus:outline-none")
+                    else if(task.dueDateTime.getHours().toString().length < 2)
+                        input(type="time" name="dueTime" value=`0${task.dueDateTime.getHours()}:${task.dueDateTime.getMinutes()}` class="text-black py-1 px-2 focus:outline-none")
+                    else if(task.dueDateTime.getMinutes().toString().length < 2)
+                        input(type="time" name="dueTime" value=`${task.dueDateTime.getHours()}:0${task.dueDateTime.getMinutes()}` class="text-black py-1 px-2 focus:outline-none")
+                    else
+                        input(type="time" name="dueTime" value=`${task.dueDateTime.getHours()}:${task.dueDateTime.getMinutes()}` class="text-black py-1 px-2 focus:outline-none")
+                    button(id="todayOnlyBtn" class="px-2 text-sm hover:underline") Today Only
+            input(type="submit" value="Update" class="px-4 py-1 bg-blue-600 hover:bg-blue-800 rounded-lg hover:cursor-pointer text-white") 
+
+    script(src="/task/updateTask.js") 

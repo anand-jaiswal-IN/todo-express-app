@@ -1,0 +1,6 @@
+.error {
+    display: none;
+  }
+  .showError {
+    display: inline-block;
+  }

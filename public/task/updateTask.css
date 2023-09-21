@@ -1,0 +1,25 @@
+.tag {
+    font-size: 0.9rem;
+    color: #fff;
+    margin-right: 0.2rem;
+  }
+  .tag > p {
+    background-color: orange;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.8rem 0 0 0.8rem;
+  }
+  .tagCancelBtn {
+    padding: 0.2rem 0.6rem;
+    border-radius: 0 0.8rem 0.8rem 0;
+    background-color: orangered;
+  }
+  .tagCancelBtn:hover {
+    background-color: rgb(192, 51, 0);
+  }
+  .error {
+    display: none;
+  }
+  .showError {
+    display: inline-block;
+  }
+  

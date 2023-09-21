@@ -1,0 +1,11 @@
+include ./layout
+
+block titile 
+    title #{pageTitle}
+
+block body
+    != messages()
+    if(user) 
+        h1 Welcome #{user.name}
+    else 
+        h1 Welcome to my website
