@@ -10,4 +10,3 @@ const databaseName = `todoApp`;
 const connectionAt = atlasHost+databaseName;
 
 module.exports = connectionAt;
-
