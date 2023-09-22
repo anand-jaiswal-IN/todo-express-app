@@ -4,9 +4,10 @@ const atlasHost = `mongodb+srv://${username}:${passward}@demopurpose.skeokef.mon
 
 const localhost = `mongodb://127.0.0.1/`
 
-const databaseName = `my_db`;
+const databaseName = `todoApp`;
 
-const connectionAt = localhost+databaseName;
+// const connectionAt = localhost+databaseName;
+const connectionAt = atlasHost+databaseName;
 
 module.exports = connectionAt;
 
