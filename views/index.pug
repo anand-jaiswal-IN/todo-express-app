@@ -4,8 +4,37 @@ block titile
     title #{pageTitle}
 
 block body
-    != messages()
-    if(user) 
-        h1 Welcome #{user.name}
-    else 
-        h1 Welcome to my website
+    .body-wrapper.bg-dark-bg.text-white.py-2
+        != messages()
+        h1(class="ld:text-2xl text-3xl lg:text-center pb-4 font-bold") Welcome to my ToDo-App
+        div 
+            p Stay organized and boost your productivity with our simple and intuitive to-do app built on Express.js. Whether you're a student, a professional, or just someone looking to manage their daily tasks more efficiently, our app has you covered.
+            br
+            h2(class="text-2xl underline") Key Features :
+            br
+            ul
+                li.py-2
+                    b Create Tasks:
+                    |  Easily add tasks with just a few clicks. Name your tasks, set priorities, and add due dates to keep track of everything on your plate.
+                li.py-2
+                    b Organize Tasks:
+                    |  Sort your tasks by priority, due date, or status. Stay on top of what's most important and never miss a deadline.
+                li.py-2
+                    b Real-Time Updates:
+                    |  Tasks are updated in real-time, so you always have the latest information at your fingertips.
+                li.py-2
+                    b Edit and Delete:
+                    |  Need to make changes or mark a task as complete? Our app allows you to edit and delete tasks effortlessly.
+                li.py-2
+                    b Deadline Reminders:
+                    |  Set due dates for your tasks and receive reminders to ensure you never miss an important deadline.
+                li.py-2
+                    b User-Friendly:                    
+                    |  Our user-friendly interface ensures a smooth and efficient experience for both beginners and productivity experts.
+            br
+            h2(class="text-2xl underline") Getting Started :
+            ol(class="ml-4" style="list-style-type:decimal")
+                li.py-2 Sign up for an account or log in if you're an existing user.
+                li.py-2 Start adding tasks to your to-do list. You can organize them, set priorities, and even add due dates.
+                li.py-2 Stay on top of your tasks with our intuitive dashboard, and enjoy the satisfaction of checking items off your list as you complete them.
+                

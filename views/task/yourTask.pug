@@ -30,5 +30,5 @@ block body
                         else
                             b= task.dueDateTime.getHours() + ':' + task.dueDateTime.getMinutes() + ':' +'AM'
                 div 
-                    a(href=`/task/updateTask/${task._id}` class="py-1 px-4 bg-blue-600 hover:bg-blue-800 rounded-lg mx-1 hover:cursor-pointer") Edit
-                    a(href=`/task/finish/${task._id}` class="py-1 px-4 bg-green-600 hover:bg-green-800 rounded-lg mx-1 hover:cursor-pointer") Finish
+                    a(href=`/task/updateTask/${task._id}` class="py-1 px-4 bg-blue-600 hover:bg-blue-800 rounded-lg mx-1 hover:cursor-pointer block text-center mb-2") Edit
+                    a(href=`/task/finish/${task._id}` class="py-1 px-4 bg-green-600 hover:bg-green-800 rounded-lg mx-1 hover:cursor-pointer block text-center") Finish

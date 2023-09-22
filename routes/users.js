@@ -30,6 +30,7 @@ router.post("/login", (req, res) => {
         res.redirect("/users/login");
       } else {
         req.session.user = user;
+        req.flash("successMessage", "Logged in successfully");
         res.redirect("/");
       }
     }
